@@ -1,7 +1,7 @@
 {
   "name": "skyward-mcp",
   "version": "1.0.0",
-  "description": "A local MCP server for reading Skyward gradebook data directly over HTTP, with optional Chrome fallback.",
+  "description": "A local MCP server for reading Skyward gradebook data directly over HTTP.",
   "main": "skyward-mcp.js",
   "bin": {
     "skyward-mcp": "./skyward-mcp.js"

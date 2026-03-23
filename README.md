@@ -2,7 +2,7 @@
 
 `Skyward MCP` is a local MCP server for reading Skyward gradebook data.
 
-It can log into Skyward directly over HTTP, so the normal setup does not need a browser at all. It can also fall back to an open Chrome Skyward tab if direct credentials are not provided.
+It logs into Skyward directly over HTTP and does not use a browser.
 
 ## What It Can Do
 
@@ -10,7 +10,7 @@ It can log into Skyward directly over HTTP, so the normal setup does not need a 
 - List assignments for a class
 - Open class-grade detail views
 - Open assignment detail views
-- Work directly against Skyward without a browser when login settings are provided
+- Work directly against Skyward without a browser
 
 ## Available Tools
 
@@ -48,23 +48,13 @@ export SKYWARD_SECURITY_CODE='123456'
 export SKYWARD_DESTINATION='sfgradebook001.w'
 ```
 
-When `SKYWARD_LOGIN_ID` and `SKYWARD_PASSWORD` are set, the server uses direct Skyward requests and does not need Chrome.
+The server requires `SKYWARD_LOGIN_ID` and `SKYWARD_PASSWORD`. It only uses direct Skyward requests.
 
 Do not hardcode credentials into the project. Keep them in your shell environment or in your MCP client config, and keep local env files out of git.
 
-## Chrome Fallback
-
-If direct login settings are not present, the server can read from an already-open Skyward gradebook tab in Chrome.
-
-If needed, set:
-
-```bash
-export SKYWARD_CHROME_WS_ENDPOINT='ws://127.0.0.1:9222/devtools/browser/...'
-```
-
 ## Smoke Test
 
-With direct login settings set, or with Chrome open to Skyward Gradebook:
+With direct login settings set:
 
 ```bash
 npm run smoke-test
@@ -86,10 +76,9 @@ Example server entry:
 }
 ```
 
-The `env` block matters if your MCP client launches the server as a child process. That is how the server receives the login settings for browserless mode.
+The `env` block matters if your MCP client launches the server as a child process. That is how the server receives the login settings.
 
 ## Notes
 
 - This project reads Skyward gradebook data. It does not include the Better Skyward Chrome extension.
-- Direct login is the preferred mode.
-- Browser fallback is kept for cases where direct login is not available.
+- This project is direct-login only.

@@ -4,6 +4,12 @@ const { Client } = require("@modelcontextprotocol/sdk/client/index.js");
 const { StdioClientTransport } = require("@modelcontextprotocol/sdk/client/stdio.js");
 
 async function main() {
+  if (!process.env.SKYWARD_LOGIN_ID || !process.env.SKYWARD_PASSWORD) {
+    throw new Error(
+      "Smoke test requires SKYWARD_LOGIN_ID and SKYWARD_PASSWORD in the environment."
+    );
+  }
+
   const transport = new StdioClientTransport({
     command: "node",
     args: ["skyward-mcp.js"],
