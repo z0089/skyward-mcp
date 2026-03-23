@@ -31,7 +31,7 @@ npm install
 npm start
 ```
 
-## Browserless Setup
+## Required Setup
 
 Set these before starting the server:
 
@@ -49,6 +49,8 @@ export SKYWARD_DESTINATION='sfgradebook001.w'
 ```
 
 The server requires `SKYWARD_LOGIN_ID` and `SKYWARD_PASSWORD`. It only uses direct Skyward requests.
+
+If those values are missing, the server will not start working requests.
 
 Do not hardcode credentials into the project. Keep them in your shell environment or in your MCP client config, and keep local env files out of git.
 
@@ -80,5 +82,5 @@ The `env` block matters if your MCP client launches the server as a child proces
 
 ## Notes
 
-- This project reads Skyward gradebook data. It does not include the Better Skyward Chrome extension.
 - This project is direct-login only.
+- It does not use Chrome or any browser fallback.
