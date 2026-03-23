@@ -1,0 +1,34 @@
+{
+  "name": "skyward-mcp",
+  "version": "1.0.0",
+  "description": "A local MCP server for reading Skyward gradebook data directly over HTTP, with optional Chrome fallback.",
+  "main": "skyward-mcp.js",
+  "bin": {
+    "skyward-mcp": "./skyward-mcp.js"
+  },
+  "scripts": {
+    "start": "node skyward-mcp.js",
+    "smoke-test": "node scripts/smoke-test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/z0089/skyward-mcp.git"
+  },
+  "keywords": [
+    "mcp",
+    "skyward",
+    "gradebook"
+  ],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/z0089/skyward-mcp/issues"
+  },
+  "homepage": "https://github.com/z0089/skyward-mcp#readme",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.27.1",
+    "cheerio": "^1.2.0",
+    "zod": "^4.3.6"
+  }
+}
